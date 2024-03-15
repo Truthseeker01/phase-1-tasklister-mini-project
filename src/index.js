@@ -8,33 +8,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sakib's solution
     // const item = document.createElement("li");
-    // item.textContent = taskSubmitted;
+    // const itemCont = document.createElement("span");
+    // item.appendChild(itemCont);
+    // itemCont.textContent = taskSubmitted;
     // const priority = document.querySelector("form").priority.value;
     // if (priority === "high"){
-    //   item.style.color = "red";}
+    //   itemCont.style.color = "red";}
     // if (priority === "medium"){
-    //   item.style.color = "yellow";}
+    //   itemCont.style.color = "yellow";}
     // if (priority === "low"){
-    //   item.style.color = "green";} 
+    //   itemCont.style.color = "green";} 
     // document.querySelector("#tasks").append(item);
+    // itemCont.contentEditable = "true";
 
     // const buttonElem = item.appendChild(document.createElement("button"));
     // buttonElem.innerHTML = "x";
     // buttonElem.onclick = function() {
     // item.remove();}
 
-    const list = document.createElement("ul");
+    // const list = document.createElement("ul");
     const arr = [taskSubmitted];
     for (i=0; i < arr.length; i++){
         const item = document.createElement("li");
-        item.appendChild(document.createTextNode(arr[i]));
+        const span = document.createElement('span');
+        item.appendChild(span);
+        //item.appendChild(document.createTextNode((arr[i])));
+        span.textContent = arr[i];
+        span.contentEditable = "true"
         document.querySelector("#tasks").appendChild(item);
-
+    
         const priority = document.querySelector("select").value;
         if (priority === "high"){
           item.style.color = "red";}
         if (priority === "medium"){
-          item.style.color = "yellow";}
+          item.style.color = "blue";}
         if (priority === "low"){
           item.style.color = "green";} 
 
@@ -42,10 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         buttonElem.innerHTML = "x";
         buttonElem.onclick = function() {
         item.remove();
-    }}
-    
+        }
 
-  })
+      }
+    })
     
-});
+    
+    
+    });
 
